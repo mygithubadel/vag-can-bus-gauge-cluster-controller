@@ -3,10 +3,12 @@ VW Gauge Cluster Can-Bus Controller for 2003 ~ 2008 Car Models, with support for
 https://en.wikipedia.org/wiki/CAN_bus \
 https://en.lfsmanual.net/wiki/OutSim_/_OutGauge
 
-quick demonstration ( Frontend: flat HTML file + XHR requests, Backend: nodejs, builds a udp packet for emulating OutGauge protocol ) : 
+demonstration ( Frontend: flat HTML file + XHR requests, Backend: nodejs, builds a udp packet for emulating OutGauge protocol ) : 
 https://www.npmjs.com/package/python-struct
 
 https://user-images.githubusercontent.com/5550633/171330847-7dcb1376-1a37-44a3-a299-bd44562d5628.mp4
+
+https://youtu.be/KV-soxbjtZg
 
 BeamNG.drive via built-in OutGauge protocol ( connects directly to nodemcu8266 via wifi )
 
