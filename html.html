@@ -1,0 +1,158 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<script>
+		let hostname = '10.0.2.100';
+		/*
+			speed calibration
+			10 9.5
+			20 19.5
+			30 29.5
+			40 39.5
+			50 50
+			60 59.5
+			70 69.5
+			80 79.5
+			90 90
+			100 100
+			120 119.5
+			140 140
+
+			160 161
+			180 181
+			200 201.5
+			220 222
+			240 242.5
+			260 263.5
+
+		*/
+		function calibrateSpeed (kmh) {
+
+			let value = parseFloat(kmh) - 0.2;
+
+			if(value >= 250) {
+				value+=4
+			} else if(value >= 230) {
+				value+=3
+			} else if(value >= 210) {
+				value+=2.5
+			} else if(value >= 190) {
+				value+=2
+			} else if(value >= 150) {
+				value+=1
+			}
+			return (value > 0 ? value / 3.6 : 0);
+		}
+
+
+		function reqListener () {
+		  console.log(this.responseText);
+		}
+
+		function sendXHR(url){
+			let xhr = new XMLHttpRequest();
+			xhr.addEventListener("load", reqListener);
+			xhr.open("GET", url, true);
+			xhr.send();
+		}
+
+		function handleSpeedChange(e) {
+			sendXHR('http://'+hostname+'/speed?speed='+calibrateSpeed(e.target.value), true);
+			SPEED.innerHTML = e.target.value;
+		}
+
+		function handleRpmChange(e) {
+			sendXHR('http://'+hostname+'/rpm?rpm='+e.target.value, true);
+		}
+
+		function handleFuelChange(e) {
+			sendXHR('http://'+hostname+'/fuel?fuel='+e.target.value, true);
+			FUEL.innerHTML = e.target.value;
+
+		}
+
+		function handleTempChange(e) {
+			sendXHR('http://'+hostname+'/temp?temp='+e.target.value, true);
+			temp.innerHTML = e.target.value;
+		}
+
+		function handleLightsMouseDown(e, target){
+			sendXHR('http://'+hostname+'/dashlights?'+target+'=true', true);
+		}
+
+		function handleLightsMouseUp(e, target){
+			sendXHR('http://'+hostname+'/dashlights?'+target+'=false', true);
+		}
+
+
+	</script>
+
+	<input style="width: 100%" type="range" id="volume" name="volume" min="0" max="260" step="0.1" onInput="handleSPEEDchange(event)">
+	<label for="volume">Speed</label>
+	<div id=SPEED></div>
+
+	<input style="width: 100%" type="range" id="volume" name="volume" min="0" max="8000" onInput="handleRPMchange(event)">
+	<label for="volume">RPM</label>
+
+	<input style="width: 100%" type="range" id="volume" name="volume" min="0" max="100" onInput="handleFUELchange(event)">
+	<label for="volume">FUEL</label>
+	<div id=FUEL></div>
+
+	<input style="width: 100%" type="range" id="volume" name="volume" min="50" max="130" onInput="handleTEMPchange(event)">
+	<label for="volume">TEMP</label>
+	<div id=temp></div>
+	<br/>
+	<br/>
+
+
+	<div>[ MOMENTARY SWITCH ]</div>
+	<button onMouseUp="handleLightsMouseUp(event, 'abs')" onMouseDown="handleLightsMouseDown(event, 'abs')" >ABS</button>
+	<button onMouseUp="handleLightsMouseUp(event, 'left')" onMouseDown="handleLightsMouseDown(event, 'left')" >LEFT SIGNAL</button>
+	<button onMouseUp="handleLightsMouseUp(event, 'right')" onMouseDown="handleLightsMouseDown(event, 'right')" >RIGHT SIGNAL</button>
+	<button onMouseUp="handleLightsMouseUp(event, 'warning'); " onMouseDown="handleLightsMouseDown(event, 'warning'); " >WARNING SIGNAL</button>
+	<button onMouseUp="handleLightsMouseUp(event, 'beam')" onMouseDown="handleLightsMouseDown(event, 'beam')" >HIGH BEAM</button>
+
+	<button onMouseUp="handleLightsMouseUp(event, 'ebrake')" onMouseDown="handleLightsMouseDown(event, 'ebrake')" >PARKING BRAKE</button>
+	<button onMouseUp="handleLightsMouseUp(event, 'fldoor')" onMouseDown="handleLightsMouseDown(event, 'fldoor')" >FRONT LEFT DOOR</button>
+	<button onMouseUp="handleLightsMouseUp(event, 'frdoor')" onMouseDown="handleLightsMouseDown(event, 'frdoor')" >FRONT RIGHT DOOR</button>
+	<button onMouseUp="handleLightsMouseUp(event, 'rldoor')" onMouseDown="handleLightsMouseDown(event, 'rldoor')" >REAR LEFT DOOR</button>
+	<button onMouseUp="handleLightsMouseUp(event, 'rrdoor')" onMouseDown="handleLightsMouseDown(event, 'rrdoor')" >REAR RIGHT DOOR</button>
+	<button onMouseUp="handleLightsMouseUp(event, 'hood')" onMouseDown="handleLightsMouseDown(event, 'hood')" >HOOD</button>
+	<button onMouseUp="handleLightsMouseUp(event, 'kr')" onMouseDown="handleLightsMouseDown(event, 'kr')" >KOFFERRAUM</button>
+
+	<div>[ ON ]</div>
+	<button onMouseDown="handleLightsMouseDown(event, 'abs')" >ABS</button>
+	<button onMouseDown="handleLightsMouseDown(event, 'left')" >LEFT SIGNAL</button>
+	<button onMouseDown="handleLightsMouseDown(event, 'right')" >RIGHT SIGNAL</button>
+	<button onMouseDown="handleLightsMouseDown(event, 'warning'); " >WARNING SIGNAL</button>
+	<button onMouseDown="handleLightsMouseDown(event, 'beam')" >HIGH BEAM</button>
+
+	<button onMouseDown="handleLightsMouseDown(event, 'ebrake')" >PARKING BRAKE</button>
+	<button onMouseDown="handleLightsMouseDown(event, 'fldoor')" >FRONT LEFT DOOR</button>
+	<button onMouseDown="handleLightsMouseDown(event, 'frdoor')" >FRONT RIGHT DOOR</button>
+	<button onMouseDown="handleLightsMouseDown(event, 'rldoor')" >REAR LEFT DOOR</button>
+	<button onMouseDown="handleLightsMouseDown(event, 'rrdoor')" >REAR RIGHT DOOR</button>
+	<button onMouseDown="handleLightsMouseDown(event, 'hood')" >HOOD</button>
+	<button onMouseDown="handleLightsMouseDown(event, 'kr')" >KOFFERRAUM</button>
+
+
+	<div>[ OFF ]</div>
+	<button onMouseDown="handleLightsMouseUp(event, 'abs')" >ABS</button>
+	<button onMouseDown="handleLightsMouseUp(event, 'left')" >LEFT SIGNAL</button>
+	<button onMouseDown="handleLightsMouseUp(event, 'right')" >RIGHT SIGNAL</button>
+	<button onMouseDown="handleLightsMouseUp(event, 'warning'); " >WARNING SIGNAL</button>
+	<button onMouseDown="handleLightsMouseUp(event, 'beam')" >HIGH BEAM</button>
+
+	<button onMouseDown="handleLightsMouseUp(event, 'ebrake')" >PARKING BRAKE</button>
+	<button onMouseDown="handleLightsMouseUp(event, 'fldoor')"  >FRONT LEFT DOOR</button>
+	<button onMouseDown="handleLightsMouseUp(event, 'frdoor')" >FRONT RIGHT DOOR</button>
+	<button onMouseDown="handleLightsMouseUp(event, 'rldoor')"  >REAR LEFT DOOR</button>
+	<button onMouseDown="handleLightsMouseUp(event, 'rrdoor')"  >REAR RIGHT DOOR</button>
+	<button onMouseDown="handleLightsMouseUp(event, 'hood')"  >HOOD</button>
+	<button onMouseDown="handleLightsMouseUp(event, 'kr')"  >KOFFERRAUM</button>
+
+
+</body>
+</html>
