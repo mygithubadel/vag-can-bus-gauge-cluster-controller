@@ -65,6 +65,8 @@ const int delayTime = 1;
 static unsigned long previousMillis = 0;
 int abstimer = 0;
 int distancetimer = 0;
+int timeAdder = 0;
+
 
 ////////////////////////
 
@@ -85,14 +87,6 @@ byte speedH = 0;
 short tempRPM = 0;
 byte rpmL = 0;
 byte rpmH = 0;
-int distance_adder = 0;
-unsigned int distance_counter = 0;
-int distance_multiplier = 2; 
-
-//Loop
-int timeAdder = 0;
-
-///////////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
