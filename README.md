@@ -62,4 +62,6 @@ https://cdn-reichelt.de/documents/datenblatt/A300/SBC-CAN01-MANUAL-20201021.pdf
 
 ![image](https://user-images.githubusercontent.com/5550633/171321026-8ef68d97-1e15-4c83-bf5b-1832bc7ab31f.png)
 
-# schematics to be added shortly
+# schematics 
+
+wip
