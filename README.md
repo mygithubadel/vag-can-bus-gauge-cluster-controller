@@ -56,7 +56,7 @@ https://cdn-reichelt.de/documents/datenblatt/A300/SBC-CAN01-MANUAL-20201021.pdf
 0x050 Airbag status \
 0x280 3rd and 4th bytes, comes from ECU module, indicates RPM and engine status \
 0x3D0 steering wheel immobilizer status \
-0x531 1st byte 0xf for blue high beam indicator, 3rd byte: left 0b001, right 0b110, warning signals 0b111 \
+0x531 1st byte 0xf for blue high beam indicator, 3rd byte: left 0b001, right 0b110, warning signals 0b111
 
 ## high level data flow 
 
