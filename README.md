@@ -8,13 +8,14 @@ https://www.npmjs.com/package/python-struct
 
 https://user-images.githubusercontent.com/5550633/171330847-7dcb1376-1a37-44a3-a299-bd44562d5628.mp4
 
-better quality video https://youtu.be/KV-soxbjtZg
+better quality video https://youtu.be/kCUtLtM_2gA
 
 BeamNG.drive via built-in OutGauge protocol ( connects directly to nodemcu8266 via wifi )
 
 https://user-images.githubusercontent.com/5550633/171325488-8fdae158-e063-4dcd-a315-125b10d569fb.mp4
 
-better quality video https://youtu.be/kCUtLtM_2gA
+better quality video https://youtu.be/KV-soxbjtZg
+
 
 connector - gauge cluster side:
 
