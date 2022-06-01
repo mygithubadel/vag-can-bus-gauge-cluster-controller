@@ -104,19 +104,6 @@ app.get('/dashlights', (req, res) => {
   if(req.query.hood == 'false') hood = false; 
   if(req.query.kr == 'false') kr = false; 
   
-  abs = abs || ((req.query.abs == 'true'));
-  left = left || ((req.query.left == 'true'));
-  right = right || ((req.query.right == 'true'));
-  ebrake = ebrake || ((req.query.ebrake == 'true'));
-  beam = beam || ((req.query.beam == 'true'));
-  warning = warning || ((req.query.warning == 'true'));
-  fldoor = fldoor || ((req.query.fldoor == 'true'));
-  frdoor = frdoor || ((req.query.frdoor == 'true'));
-  rrdoor = rrdoor || ((req.query.rrdoor == 'true'));
-  rldoor = rldoor || ((req.query.rldoor == 'true'));
-  hood = hood || ((req.query.hood == 'true'));
-  kr = kr || ((req.query.kr == 'true'));
-  
   if(abs) showlights+= 1024;
   if(ebrake) showlights+= 4;
   if(beam) showlights+= 2;
