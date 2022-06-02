@@ -59,31 +59,31 @@
 		}
 
 		function handleSpeedChange(e) {
-			sendXHR('http://'+hostname+'/speed?speed='+calibrateSpeed(e.target.value), true);
+			sendXHR('http://'+hostname+'/speed?speed='+calibrateSpeed(e.target.value));
 			SPEED.innerHTML = e.target.value;
 		}
 
 		function handleRpmChange(e) {
-			sendXHR('http://'+hostname+'/rpm?rpm='+e.target.value, true);
+			sendXHR('http://'+hostname+'/rpm?rpm='+e.target.value);
 		}
 
 		function handleFuelChange(e) {
-			sendXHR('http://'+hostname+'/fuel?fuel='+e.target.value, true);
+			sendXHR('http://'+hostname+'/fuel?fuel='+e.target.value);
 			FUEL.innerHTML = e.target.value;
 
 		}
 
 		function handleTempChange(e) {
-			sendXHR('http://'+hostname+'/temp?temp='+e.target.value, true);
+			sendXHR('http://'+hostname+'/temp?temp='+e.target.value);
 			temp.innerHTML = e.target.value;
 		}
 
 		function handleLightsMouseDown(e, target){
-			sendXHR('http://'+hostname+'/dashlights?'+target+'=true', true);
+			sendXHR('http://'+hostname+'/dashlights?'+target+'=true');
 		}
 
 		function handleLightsMouseUp(e, target){
-			sendXHR('http://'+hostname+'/dashlights?'+target+'=false', true);
+			sendXHR('http://'+hostname+'/dashlights?'+target+'=false');
 		}
 
 
