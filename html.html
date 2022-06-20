@@ -4,7 +4,7 @@
 </head>
 <body>
 	<script>
-		let hostname = '10.0.2.100';
+		let hostname = 'localhost';
 		/*
 			speed calibration
 			10 9.5
@@ -89,18 +89,18 @@
 
 	</script>
 
-	<input style="width: 100%" type="range" id="volume" name="volume" min="0" max="260" step="0.1" onInput="handleSPEEDchange(event)">
+	<input style="width: 100%" type="range" id="volume" name="volume" min="0" max="260" step="0.1" onInput="handleSpeedChange(event)">
 	<label for="volume">Speed</label>
 	<div id=SPEED></div>
 
-	<input style="width: 100%" type="range" id="volume" name="volume" min="0" max="8000" onInput="handleRPMchange(event)">
+	<input style="width: 100%" type="range" id="volume" name="volume" min="0" max="8000" onInput="handleRpmChange(event)">
 	<label for="volume">RPM</label>
 
-	<input style="width: 100%" type="range" id="volume" name="volume" min="0" max="100" onInput="handleFUELchange(event)">
+	<input style="width: 100%" type="range" id="volume" name="volume" min="0" max="100" onInput="handleFuelChange(event)">
 	<label for="volume">FUEL</label>
 	<div id=FUEL></div>
 
-	<input style="width: 100%" type="range" id="volume" name="volume" min="50" max="130" onInput="handleTEMPchange(event)">
+	<input style="width: 100%" type="range" id="volume" name="volume" min="50" max="130" onInput="handleTempChange(event)">
 	<label for="volume">TEMP</label>
 	<div id=temp></div>
 	<br/>
